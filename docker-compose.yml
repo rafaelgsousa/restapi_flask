@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  mongodb:
+    image: mongo:8.0.0-rc16-jammy
+    container_name: mongodb
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: devops
+      MONGO_INITDB_ROOT_PASSWORD: devops007
+  
+  flaskapi:
+    build:
+      context: .
+    container_name: flaskapi
+    ports:
+      - 5000:5000
+    restart: always
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/app

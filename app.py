@@ -19,4 +19,4 @@ api.add_resource(HelloWorld, '/')
 api.add_resource(Name, '/name/<name>')
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0")
+    app.run(debug=True)
