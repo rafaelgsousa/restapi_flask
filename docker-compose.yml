@@ -8,7 +8,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: devops
       MONGO_INITDB_ROOT_PASSWORD: devops007
-  
+    networks:
+      - networkflask
+
   flaskapi:
     build:
       context: .
@@ -20,3 +22,9 @@ services:
       - mongodb
     volumes:
       - .:/app
+    networks:
+      - networkflask
+
+networks:
+  networkflask:
+    driver: bridge
