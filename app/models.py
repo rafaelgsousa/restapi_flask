@@ -7,7 +7,7 @@ class User(Document):
     nickname = StringField(max_length=100, required=True, unique=True)
     age = IntField(min_value=18)
     email = EmailField()
-    self_image = ImageField()
+    self_image = StringField()
     is_active = BooleanField(default=True)
     cpf = StringField(max_length=14, required=True, unique=True)
 
